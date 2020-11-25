@@ -43,12 +43,14 @@ $(function() {
     //登录事件
     $("#form_reg").on("submit",function(e) {
         e.preventDefault()
+        // console.log(123);
         $.ajax({
-            url: '/api/login',
             method: 'POST',
+            url: '/api/login',
             // 快速获取表单中的数据
             data: $(this).serialize(),
             success: function(res) {
+                console.log(res);
                 if(res.status !==0) {
                     return layer.msg('登录失败! ')
                 }
